@@ -36,7 +36,7 @@ test {
 }
 
 
-task jacocoTestReport(type: JacocoReport, dependsOn:['test']) {
+jacocoTestReport(type: JacocoReport, dependsOn:['test']) {
 	reports {
 		html.enabled = true // Habilitar informe HTML
 		xml.enabled = true // Habilitar informe XML
