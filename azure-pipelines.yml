@@ -17,34 +17,17 @@ steps:
     organization: 'mostwanted001'
     projectKey: 'mostwanted001_microservicio-spring'
     projectName: 'microservicio-spring'
-    extraProperties:  
-                     'sonar.java.coveragePlugin=jacoco'
-  
+    
   displayName: 'SonarCloud Prepare'
-- task: Maven@3
-  displayName: Maven Build
+- task: Gradle@3
   inputs:
-    mavenPomFile: 'pom.xml'
+    gradleWrapperFile: 'gradlew'
+    tasks: 'build'
     publishJUnitResults: false
-    codeCoverageToolOption: 'JaCoCo'
     javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
     sonarQubeRunAnalysis: true
-    isJacocoCoverageReportXML: true
-    sqMavenPluginVersionChoice: 'latest'
-    goals: 'clean verify'
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish Code Coverage'
-  inputs:
-    codeCoverageTool: JaCoCo
-    summaryFileLocation: '**/target/site/jacoco/jacoco.xml'
-    reportDirectory: '**/target/site/jacoco'
-    failIfCoverageEmpty: true
-- task: Maven@3
-  displayName: 'run sonarCloud analisys'
-  inputs:
-   mavenPomFile: 'pom.xml'
-   goals: 'sonar:sonar'
+    sqGradlePluginVersionChoice: 'specify'
+    sonarQubeGradlePluginVersion: '3.3'
+    spotBugsAnalysis: false
+-
  
