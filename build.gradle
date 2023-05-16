@@ -8,7 +8,7 @@ plugins {
 apply plugin: 'java'
 
 jacoco {
-	toolVersion = "<version>"
+	toolVersion = "0.8.7"
 	reportsDirectory = file("$buildDir/jacocoHtml") // Directorio de destino para el informe HTML
 }
 
@@ -24,7 +24,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation('org.jacoco:org.jacoco.core:<version>')
+	testImplementation('org.jacoco:org.jacoco.core:0.8.7')
 }
 
 test {
