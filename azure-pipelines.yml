@@ -49,7 +49,7 @@ steps:
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: true
     sqGradlePluginVersionChoice: 'specify'
-    sonarQubeGradlePluginVersion: '3.5.0.2730'
+    sonarQubeGradlePluginVersion: '3.3'
     spotBugsAnalysis: false
  
 - task: Docker@2
