@@ -21,28 +21,11 @@ dependencies {
 
 test {
 	useJUnitPlatform()
-	finalizedBy jacocoTestReport
-}
-
-jacoco{
-	toolVersion = "0.8.7"
+	
 }
 
 
-jacocoTestReport{
-	reports{
-		xml.enabled = true
-		html.enabled = true
-		html.destination = file("${buildDir}/jacocoHtml")
-	}
-}
 
-sonarqube{
-	properties{
-		property 'sonar.projectKey','mostwanted001_microservicio-spring'
-		property 'sonar.organization', 'mostwanted001'
-		property 'sonar.host.url', 'https://sonarcloud.io'
-		property 'sonar.login', 'az-devops-v4'
 
-	}
-}
+
+
