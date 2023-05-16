@@ -29,11 +29,11 @@ dependencies {
 
 test {
 	useJUnitPlatform()
-	jacoco.includeNolocationClasses = true
+	jacoco.includeNoLocationClases = true
 	}
-}
 
-jacoco {
+
+jacocoTestReport {
 	reports {
 		html.enabled = true // Habilitar informe HTML
 		xml.enabled = true // Habilitar informe XML
