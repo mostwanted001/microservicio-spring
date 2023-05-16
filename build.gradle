@@ -2,9 +2,17 @@ plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'jacoco'
 }
 
 apply plugin: 'java'
+
+jacoco {
+	toolVersion = "<version>"
+	reportsDirectory = file("$buildDir/jacocoHtml") // Directorio de destino para el informe HTML
+}
+
+
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
@@ -16,11 +24,21 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testImplementation('org.jacoco:org.jacoco.core:<version>')
 }
 
 test {
 	useJUnitPlatform()
+	jacoco.includeNolocationClasses = true
+	}
+}
+
+jacoco {
+	reports {
+		html.enabled = true // Habilitar informe HTML
+		xml.enabled = true // Habilitar informe XML
+		csv.enabled = false // Deshabilitar informe CSV
+	}
 }
 
 
