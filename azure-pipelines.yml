@@ -17,8 +17,9 @@ steps:
     organization: 'mostwanted001'
     projectKey: 'mostwanted001_microservicio-spring'
     projectName: 'microservicio-spring'
-    extraProperties: sonar.java.coveragePlugin=jacoco
-                     sonar.coverage.jacoco.xmlReportPaths=build/reports/jacoco/test/jacocoTestReport.xml
+    extraProperties:  
+                     # sonar.java.coveragePlugin=jacoco
+                     # sonar.coverage.jacoco.xmlReportPaths=build/reports/jacoco/test/jacocoTestReport.xml
   displayName: 'SonarCloud Prepare'
 - task: Gradle@3
   inputs:
@@ -37,4 +38,7 @@ steps:
     summaryFileLocation: '$(Build.SourceDirectory)/build/reports/jacoco/test.exec'
     reportDirectory: '$(Build.SourceDirectory)/build/reports/jacoco'
     failIfCoverageEmpty: true
+- task: SonarCloudPublish@1
+  inputs:
+   pollingTimeoutSec: '300'
  
