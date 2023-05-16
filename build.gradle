@@ -2,13 +2,13 @@ plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-	id 'jacoco'
-	id 'org.sonarqube' version '3.3'
 }
+
+apply plugin: 'java'
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
@@ -21,7 +21,6 @@ dependencies {
 
 test {
 	useJUnitPlatform()
-	
 }
 
 
