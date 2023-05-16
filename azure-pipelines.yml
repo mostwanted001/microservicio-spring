@@ -26,13 +26,24 @@ steps:
   inputs:
     SonarCloud: 'SonarCloud'
     organization: 'mostwanted001'
-    projectKey: 'mostwanted001_microservicio-spring'
+    scannerMode: CLI
+    configMode: file
+    cliprojectKey: 'mostwanted001_microservicio-spring'
     projectName: 'microservicio-spring'
+    extraProperties:'sonar.coverage.jacoco.xmlReportPaths=$(Agent.TempDirectory)/jacocoTestReport/jacocoTestReport.xml'
   displayName: 'SonarCloud Prepare'
+  
+- task: Gradle@3
+  displayName: 'Run test'
+  inputs:
+    workingDirectory: '$(Build.SourcesDirectory)'
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: 'Xmx3072m'
+    tasks: clean test jacocoTest Report
 - task: Gradle@3
   inputs:
     gradleWrapperFile: 'gradlew'
-    tasks: 'sonarqube'
+    tasks: 'sonar'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: true
