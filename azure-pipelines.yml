@@ -30,7 +30,8 @@ steps:
     configMode: file
     cliprojectKey: 'mostwanted001_microservicio-spring'
     projectName: 'microservicio-spring'
-    extraProperties:'sonar.coverage.jacoco.xmlReportPaths=$(Agent.TempDirectory)/jacocoTestReport/jacocoTestReport.xml'
+    extraProperties: 
+                      sonar.coverage.jacoco.xmlReportPaths=$(Agent.TempDirectory)/jacocoTestReport/jacocoTestReport.xml
   displayName: 'SonarCloud Prepare'
   
 - task: Gradle@3
