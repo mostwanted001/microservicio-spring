@@ -10,10 +10,6 @@ apply plugin: 'java'
 jacoco {
 	toolVersion = "0.8.7"
 	reportsDirectory = file("$buildDir/jacocoHtml") // Directorio de destino para el informe HTML
-    tasks.withType(Test) {
-        jacoco.includeNoLocationClasses = true
-        jacoco.excludes = ['jdk.internal.*']
-	}
 }
 
 
@@ -34,6 +30,7 @@ dependencies {
 test {
 	useJUnitPlatform()
 	jacoco.includeNoLocationClasses = true
+	jacoco.excludes = ['jdk.internal.*']
 	
 	}
 
