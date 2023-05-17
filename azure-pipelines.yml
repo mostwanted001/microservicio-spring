@@ -27,11 +27,8 @@ steps:
   inputs:
     SonarCloud: 'SonarCloud'
     organization: 'mostwanted001'
-    scannerMode: CLI
-    configMode: file
     projectKey: 'mostwanted001_microservicio-spring'
     projectName: 'microservicio-spring'
-
   displayName: 'SonarCloud Prepare'
   
 - task: Gradle@3
