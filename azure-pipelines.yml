@@ -39,7 +39,6 @@ steps:
   inputs:
     workingDirectory: '$(Build.SourcesDirectory)'
     gradleWrapperFile: 'gradlew'
-    gradleOptions: 'Xmx3072m'
     tasks: clean test jacocoTest Report
 - task: Gradle@3
   inputs:
