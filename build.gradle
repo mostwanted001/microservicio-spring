@@ -10,7 +10,7 @@ apply plugin: 'java'
 
 jacoco {
 	toolVersion = "0.8.8"
-	reportsDirectory = file("$buildDir/jacocoHtml") // Directorio de destino para el informe HTML
+	reportsDirectory = file("$buildDir/jacoco") // Directorio de destino para el informe HTML
 }
 
 
@@ -32,12 +32,13 @@ dependencies {
 test {
 	useJUnitPlatform()
 	finalizedBy jacocoTestReport
-	jacoco.includeNoLocationClasses = true
-	jacoco.excludes = ['jdk.internal.*']	
+	
 }
 
 
-jacocoTestReport(type: JacocoReport, dependsOn:['test']) {
+jacocoTestReport {
+	dependsOn test
+	
 	reports {
 		html.enabled = true // Habilitar informe HTML
 		xml.enabled = true // Habilitar informe XML
