@@ -39,7 +39,7 @@ steps:
   inputs:
     workingDirectory: '$(Build.SourcesDirectory)'
     gradleWrapperFile: 'gradlew'
-    tasks: clean test jacocoTest Report
+    tasks: clean test jacocoTestReport
 - task: Gradle@3
   inputs:
     gradleWrapperFile: 'gradlew'
