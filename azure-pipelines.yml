@@ -19,7 +19,6 @@ steps:
       gradleWrapperFile: 'gradlew'
       tasks: 'build'
       publishJUnitResults: true
-      testResultsFiles: '**/TEST-*.xml'
       javaHomeOption: 'JDKVersion'
       sonarQubeRunAnalysis: false
       spotBugsAnalysis: false
@@ -47,7 +46,8 @@ steps:
     codeCoverageClassFilesDirectories: 'build/classes/main/'
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: true
-    sqGradlePluginVersionChoice: 'build'
+    sqGradlePluginVersionChoice: 'specify'
+    sonarQubeGradlePluginVersion: '3.3'
     spotBugsAnalysis: false
 
 - task: Gradle@3
