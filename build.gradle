@@ -37,7 +37,7 @@ test {
 }
 
 
-jacocoTestReport  {
+task jacocoTestReport  {
 	dependsOn test
 	reports {
 		html.enabled = true // Habilitar informe HTML
