@@ -39,12 +39,8 @@ steps:
     tasks: 'clean test jacocoTestReport'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-    codeCoverageToolOption: 'JaCoCo'
-    codeCoverageClassFilesDirectories: 'build/classes/main/'
     javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: true
-    sqGradlePluginVersionChoice: 'specify'
-    sonarQubeGradlePluginVersion: '3.3'
+    sonarQubeRunAnalysis: false
     spotBugsAnalysis: false
 
 - task: Gradle@3
