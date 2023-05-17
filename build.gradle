@@ -32,13 +32,13 @@ dependencies {
 test {
 	useJUnitPlatform()
 	finalizedBy jacocoTestReport
-	
+	jacoco.includeNoLocationClasses = true
+	jacoco.excludes = ['jdk.internal.*']	
 }
 
 
-jacocoTestReport {
+jacocoTestReport  {
 	dependsOn test
-	
 	reports {
 		html.enabled = true // Habilitar informe HTML
 		xml.enabled = true // Habilitar informe XML
