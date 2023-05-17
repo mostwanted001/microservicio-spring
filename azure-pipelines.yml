@@ -30,7 +30,7 @@ steps:
     organization: 'mostwanted001'
     scannerMode: CLI
     configMode: file
-    cliprojectKey: 'mostwanted001_microservicio-spring'
+    projectKey: 'mostwanted001_microservicio-spring'
     projectName: 'microservicio-spring'
 
   displayName: 'SonarCloud Prepare'
@@ -46,7 +46,8 @@ steps:
     codeCoverageToolOption: 'JaCoCo'
     codeCoverageClassFilesDirectories: 'build/classes/main/'
     javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: false
+    sonarQubeRunAnalysis: true
+    sqGradlePluginVersionChoice: 'build'
     spotBugsAnalysis: false
 
 - task: Gradle@3
