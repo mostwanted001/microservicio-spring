@@ -12,7 +12,7 @@ pool:
 steps:
 - script: |
       git fetch --unshallow
-  displayName: 'conver to non-shallow clone' 
+  displayName: 'convert to non-shallow clone' 
 
 - task: Gradle@3
   inputs:
@@ -38,9 +38,16 @@ steps:
 - task: Gradle@3
   displayName: 'Run test'
   inputs:
-    workingDirectory: '$(Build.SourcesDirectory)'
     gradleWrapperFile: 'gradlew'
-    tasks: clean test jacocoTestReport
+    workingDirectory: '$(Build.SourcesDirectory)'
+    tasks: 'clean test jacocoTestReport'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    codeCoverageToolOption: 'JaCoCo'
+    codeCoverageClassFilesDirectories: 'build/classes/main/'
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: false
+    spotBugsAnalysis: false
 
 - task: Gradle@3
   inputs:
