@@ -22,7 +22,7 @@ public class WebLayerTest {
 	@Test
 	public void shouldReturnDefaultMessage() throws Exception {
 		this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
-				.andExpect(content().string(containsString("Finaliza el curso DevOps Foundation v4 Alexis")));
+				.andExpect(content().string(containsString("hello, world")));
 	}
 }
 //end::test[]
