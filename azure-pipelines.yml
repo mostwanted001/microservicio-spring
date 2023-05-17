@@ -36,7 +36,6 @@ steps:
   inputs:
     gradleWrapperFile: 'gradlew'
     workingDirectory: '$(Build.SourcesDirectory)'
-    tasks: 'clean test jacocoTestReport'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
