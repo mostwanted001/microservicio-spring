@@ -33,6 +33,7 @@ test {
 	useJUnitPlatform()
 	finalizedBy jacocoTestReport
 	jacoco.includeNoLocationClasses = true
+	jacoco.excludes = ['jdk.internal.*']	
 }
 
 
@@ -42,6 +43,11 @@ jacocoTestReport  {
 		html.enabled = true // Habilitar informe HTML
 		xml.enabled = true // Habilitar informe XML
 		csv.enabled = false // Deshabilitar informe CSV
+	}
+	rule {
+		enable = false
+		element = 'CLASS'
+		includes = ['org.gradle.*']
 	}
 	classDirectories.setFrom(files(sourceSets.main.output.classesDirs))
 	sourceDirectories.setFrom(files(sourceSets.main.allSource.srcDirs))
