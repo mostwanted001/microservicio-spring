@@ -7,7 +7,7 @@ plugins {
 }
 
 apply plugin: 'java'
-
+apply plugin: 'org.sonarqube'
 
 jacoco {
 	toolVersion = "0.8.8"
@@ -59,17 +59,13 @@ jacocoTestReport  {
 
 	
 
-	classDirectories.setFrom(files(sourceSets.main.output.classesDirs))
-	sourceDirectories.setFrom(files(sourceSets.main.allSource.srcDirs))
-	executionData.setFrom(files("${buildDir}/jacoco/test.exec"))	
-}
-
-afterEvaluate{
 	classDirectories.setFrom(files(classDirectories.files.collect{
 		fileTree(dir: it, exclude:[
 			'com./example/testingweb/test/*'
 		])
 	}))
+	sourceDirectories.setFrom(files(sourceSets.main.allSource.srcDirs))
+	executionData.setFrom(files("${buildDir}/jacoco/test.exec"))	
 }
 
 
