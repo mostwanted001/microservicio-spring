@@ -30,7 +30,7 @@ steps:
     projectKey: 'mostwanted001_microservicio-spring'
     projectName: 'microservicio-spring'
     extraProperties: |
-     sonar.exclusions=**/obj/**,**/*.dll
+     sonar.exclusions=src/main/java/com/example/testingweb/GreetingService.java
   displayName: 'SonarCloud Prepare'
   
 - task: Gradle@3
