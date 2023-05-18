@@ -19,6 +19,8 @@ sonar{
 		property("sonar.projectKey", "mostwanted001_microservicio-spring")
 		property("sonar.organization", "mostwanted001")
 		property("sonar.host.url", "https://sonarcloud.io")
+		property("sonar.languaje", "java")
+		property("sonar.source", "src")
 		def projectPath = "**/*com/example/testingweb"
 		def exclusionList = [
 			      "${projectPath}/test/*"
@@ -61,7 +63,7 @@ jacocoTestReport  {
 
 	classDirectories.setFrom(files(classDirectories.files.collect{
 		fileTree(dir: it, exclude:[
-			'com./example/testingweb/GreetingController.java'
+			'com./example/testingweb/GreetingService.java'
 		])
 	}))
 	sourceDirectories.setFrom(files(sourceSets.main.allSource.srcDirs))
