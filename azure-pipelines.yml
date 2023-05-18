@@ -29,6 +29,8 @@ steps:
     organization: 'mostwanted001'
     projectKey: 'mostwanted001_microservicio-spring'
     projectName: 'microservicio-spring'
+    extraProperties: |
+     sonar.exclusions=**/obj/**,**/*.dll
   displayName: 'SonarCloud Prepare'
   
 - task: Gradle@3
