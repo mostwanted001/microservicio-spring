@@ -3,6 +3,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'jacoco'
+	id ("org.sonarqube") version "4.0.0.2929"
 }
 
 apply plugin: 'java'
@@ -13,7 +14,17 @@ jacoco {
 	reportsDirectory = file("$buildDir/jacoco") // Directorio de destino para el informe HTML
 }
 
-
+sonarqube{
+	properties{
+		property("sonar.projectKey", "mostwanted001_microservicio-spring")
+		property("sonar.organization", "mostwanted001")
+		property("sonar.host.url", "https://sonarcloud.io")
+		def projectPath = "**/*com/example/testingweb"
+		def exclusionList = [
+			      "${projectPath}/test/*"
+		]
+	}
+}
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
@@ -50,8 +61,15 @@ jacocoTestReport  {
 
 	classDirectories.setFrom(files(sourceSets.main.output.classesDirs))
 	sourceDirectories.setFrom(files(sourceSets.main.allSource.srcDirs))
-	executionData.setFrom(files("${buildDir}/jacoco/test.exec"))
-	
+	executionData.setFrom(files("${buildDir}/jacoco/test.exec"))	
+}
+
+afterEvaluate{
+	classDirectories.setFrom(files(classDirectories.files.collect{
+		fileTree(dir: it, exclude:[
+			'com./example/testingweb/test/*'
+		])
+	}))
 }
 
 
