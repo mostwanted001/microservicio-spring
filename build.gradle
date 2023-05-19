@@ -8,13 +8,6 @@ plugins {
 apply plugin: 'java'
 
 
-jacoco {
-	toolVersion = "0.8.8"
-	reportsDirectory = file("$buildDir/jacoco") // Directorio de destino para el informe HTML
-}
-
-
-
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
