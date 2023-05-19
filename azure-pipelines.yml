@@ -78,3 +78,9 @@ steps:
       containerRegistry: 'Docker'
       repository: 'mostwanted0001/microservicio-spring'
       command: 'push'
+    
+- task: CmdLine@2
+  inputs:
+        script: |
+            jmeter -n -t jmeter/PruebaDevops.jmx -l resultados.jtl
+  displayName: 'Run JMeter'
