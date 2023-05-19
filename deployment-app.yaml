@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservicio-deployment
+  labels:
+    app: microservicioFinal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservicioFinal
+  template:
+    metadata:
+      labels:
+        app: microservicioFinal
+    spec:
+      containers:
+      - name: microservicioFinal
+        image: mostwanted0001/microservicio-spring:latest
+        ports:
+        - containerPort: 8080
