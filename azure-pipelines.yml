@@ -93,7 +93,7 @@ jobs:
       targetType: 'inline'
       script: |
         Start-Process "kubectl" -ArgumentList "port-forward service/lab-service 8080:8080" -WindowStyle Hidden
-    displayName: 'kubectl port-forward'
+    displayName: 'kubectl port--forward'
     continueOnError: true
 
   - task: CmdLine@2
