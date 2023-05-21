@@ -1,21 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: micro-deployment
+  name: lab-deployment
   labels:
-    app: microservicio-Final-V4
+    app: lab-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: microservicio-Final
+      app: lab-app
   template:
     metadata:
       labels:
-        app: microservicio-Final
+        app: lab-app
     spec:
       containers:
-      - name: microservicio-Final
-        image: mostwanted0001/microservicio-spring:latest
-        ports:
-        - containerPort: 8080
+        - name: lab-app
+          image: mostwanted0001/microservicio-spring:latest
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lab-service
+spec:
+  selector:
+    app: lab-app
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
