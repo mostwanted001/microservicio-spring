@@ -92,7 +92,7 @@ jobs:
     inputs:
       targetType: 'inline'
       script: |
-         kubectl port-forward service/lab-service 8080:8080 -WindowStyle Hidden
+         kubectl port-forward service/lab-service 8080:8080
     displayName: 'kubectl port--forward'
     continueOnError: true
 
