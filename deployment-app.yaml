@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: microservicio-deployment
   labels:
-    app: microservicioFinal
+    app: microservicio-Final-V4
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: microservicioFinal
+      app: microservicio-Final
   template:
     metadata:
       labels:
-        app: microservicioFinal
+        app: microservicio-Final
     spec:
       containers:
-      - name: microservicioFinal
+      - name: microservicio-Final
         image: mostwanted0001/microservicio-spring:latest
         ports:
         - containerPort: 8080
