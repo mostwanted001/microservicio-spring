@@ -87,11 +87,10 @@ jobs:
       connectionType: 'None'
       command: 'apply'
       arguments: '--force -f deployment-app.yaml'
-  - task: PowerShell@2
-    inputs:
-      targetType: 'inline'
-      script: |
-        Start-Process "kubectl" -ArgumentList "port-forward service/lab-service 8080:8080" -WindowStyle Hidden
+  - script: |
+    #!/bin/bash
+
+    kubectl port-forward service/lab-service 8080:8080 > /dev/null 2>&1 &
     displayName: 'kubectl port-forward'
     continueOnError: true
     
