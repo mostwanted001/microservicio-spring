@@ -12,9 +12,9 @@ jobs:
     vmImage: ubuntu-latest
   
   steps:
-  -  script: |
-      git fetch --unshallow
-      displayName: 'convert to non-shallow clone' 
+  # -  script: |
+  #     git fetch --unshallow
+  #     displayName: 'convert to non-shallow clone' 
 
   - task: Gradle@3
     inputs:
