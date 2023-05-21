@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: microservicio-deployment
+  name: micro-deployment
   labels:
     app: microservicio-Final-V4
 spec:
