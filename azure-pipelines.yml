@@ -88,7 +88,7 @@ jobs:
       command: 'apply'
       arguments: '-f deployment-app.yaml'
   
-  - script: kubectl port-forward deploy/microservicio-deployment 8080:8083
+  - script: kubectl port-forward deploy/microservicio-deployment 8085:8080
     
   - task: CmdLine@2
     inputs:
