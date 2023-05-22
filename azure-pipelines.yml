@@ -99,5 +99,5 @@ jobs:
   - task: CmdLine@2
     inputs:
         script: |
-            jmeter -n -t /Users/alexis/Desktop/diplomado/apache-jmeter-5.5/ -n -t PruebaDevops.jmx -l resultados.jtl
+            jmeter -n -t /Users/alexis/Desktop/diplomado/apache-jmeter-5.5/bin/jmeter.sh -n -t PruebaDevops.jmx -l resultados.jtl
     displayName: 'Run JMeter'
